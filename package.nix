@@ -10,7 +10,7 @@
 
 buildGo127Module (finalAttrs: {
   pname = "gomodel";
-  version = "0.2.3";
+  version = "0.2.4";
 
   __structuredAttrs = true;
 
@@ -18,10 +18,10 @@ buildGo127Module (finalAttrs: {
     owner = "ENTERPILOT";
     repo = "GoModel";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-1LT+Xd1O5ZgFedaY4AfKTFfQIJ8IeQqLPX+Q2iVr2fI=";
+    hash = "sha256-gWTrLuGeSFKRxYq5koHm6ZSTVzf9xGfP82MfIKm8LUw=";
   };
 
-  vendorHash = "sha256-U/HsU7S09Jl4M/fGLQyYCBqCwqrT0Z3tLTsIs9Vxsxc=";
+  vendorHash = "sha256-sq1n7g/1/TJiEn+JDFaFx91LYe07bZ6Wg2T7srzgFDo=";
   npmDeps = fetchNpmDeps {
     src = "${finalAttrs.src}/web/dashboard";
     hash = "sha256-w/Q0PQeX3HmbRRZi3uT5slPVmY/H5Y1nVOeYtgCpRVE=";
@@ -46,11 +46,11 @@ buildGo127Module (finalAttrs: {
   # Tests require network services (Redis, Postgres, etc.)
   doCheck = false;
 
-  # nixpkgs has Go 1.27.2; go.mod requires 1.27.3 (a patch release with no
+  # nixpkgs has Go 1.27.3; go.mod requires 1.27.4 (a patch release with no
   # new language features). Lower the directive to match the available
   # toolchain. `go mod tidy` later will restore the real value.
   prePatch = ''
-    sed -i 's/^go 1\.27\.3$/go 1.27.2/' go.mod
+    sed -i -E 's/^go 1\.27\.[0-9]+$/go 1.27.3/' go.mod
   '';
 
   preBuild = ''
