@@ -18,7 +18,7 @@ Supported systems: `x86_64-linux`, `aarch64-linux`, `x86_64-darwin`, `aarch64-da
 
 ## Package
 
-The package builds GoModel `v0.2.4` from upstream with:
+The package builds GoModel `v0.2.5` from upstream with:
 
 - Go module build (`buildGo127Module`)
 - vendored Go and npm dependencies
