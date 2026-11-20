@@ -33,7 +33,7 @@ Upstream project: <https://github.com/ENTERPILOT/GoModel>
 ### Run the package
 
 ```bash
-nix run github:IT-ZONE-AI/flake-gomodel
+nix run github:it-zone/flake-gomodel
 # or, from a local checkout
 nix run .#
 ```
@@ -42,7 +42,7 @@ nix run .#
 
 ```nix
 {
-  inputs.gomodel.url = "github:IT-ZONE-AI/flake-gomodel";
+  inputs.gomodel.url = "github:it-zone/flake-gomodel";
 
   outputs = { nixpkgs, gomodel, ... }: {
     nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
